@@ -14,3 +14,6 @@ beam breaker:
 
 vison:
   - theres one microsoft life cam, raspberry pie: some sort of raspberry pie although we are not fully sure but it seems to have supersonic to keep track of distance 
+
+drive train:
+- 4 victor spx
