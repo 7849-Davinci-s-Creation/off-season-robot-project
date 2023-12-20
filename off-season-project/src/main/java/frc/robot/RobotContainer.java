@@ -7,6 +7,9 @@ package frc.robot;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
+import frc.robot.commands.ArcadeDrive;
+import frc.robot.subsystems.DriveTrain;
+import edu.wpi.first.wpilibj.PS4Controller;
 
 /**
  * This class is where the bulk of the robot should be declared. Since Command-based is a
@@ -15,12 +18,15 @@ import edu.wpi.first.wpilibj2.command.button.Trigger;
  * subsystems, commands, and trigger mappings) should be declared here.
  */
 public class RobotContainer {
-
+  final PS4Controller ps4Controller = new PS4Controller(Constants.OperatorConstants.kDriverControllerPort);
+  final DriveTrain driveTrain = new DriveTrain(); 
+  /** dont touch or i steal your chips */
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
     // Configure the trigger bindings
     configureBindings();
+    driveTrain.setDefaultCommand(new ArcadeDrive(ps4Controller, driveTrain));   
   }
 
   /**
